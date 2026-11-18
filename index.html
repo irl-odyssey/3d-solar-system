@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080f1c" />
+    <meta name="description" content="An illustrated, interactive field guide to our solar system. Nine worlds, one small corner of the universe." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='12' fill='%23efb968'/%3E%3Cellipse cx='32' cy='32' rx='29' ry='19' fill='none' stroke='%23efb968' stroke-width='3' transform='rotate(-30 32 32)'/%3E%3C/svg%3E" />
+    <title>Orbital | A solar system field guide</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#worlds">Skip to the planet list</a>
+    <header class="masthead">
+      <a class="wordmark" href="#top" aria-label="Orbital home"><span class="brand-orbit" aria-hidden="true"></span>ORBITAL<span class="wordmark-note">AN OPEN OBSERVATORY</span></a>
+      <nav aria-label="Main navigation"><a href="#worlds">Explore</a><a href="#field-notes">Field notes <span aria-hidden="true">↗</span></a></nav>
+    </header>
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span class="status-dot"></span> A FIELD GUIDE TO OUR COSMIC NEIGHBORHOOD</p><h1 id="page-title">A little perspective.</h1></div>
+        <p>One star. Eight planets. Countless stories.<br /> Take a moment to look around.</p>
+      </section>
+      <section class="observatory" aria-label="Interactive solar system">
+        <nav class="worlds" id="worlds" aria-label="Choose a celestial body">
+          <div class="section-caption">THE NEIGHBORHOOD <span>09</span></div>
+          <ol id="planet-list"></ol>
+          <div class="rail-note"><span class="tiny-orbit" aria-hidden="true">◎</span><p>A small part of<br />something much bigger.</p></div>
+        </nav>
+        <div class="viewport">
+          <div class="map-heading"><p class="section-caption">SOLAR SYSTEM <span>/</span> <span id="view-mode">OVERVIEW</span></p><span class="map-marker" aria-hidden="true">N ↑</span></div>
+          <div id="scene-container">
+            <canvas id="solar-canvas" aria-label="3D solar system. Use the adjacent planet list to select a body, then use its Focus button for a closer view."></canvas>
+            <div id="planet-labels" aria-hidden="true"></div>
+            <div id="fallback" hidden role="status"><span class="fallback-symbol" aria-hidden="true">◎</span><h2>The sky, in words.</h2><p id="fallback-reason"></p><p>Choose any world from the planet list. Every fact is still here, no 3D required.</p></div>
+          </div>
+          <div class="scene-footer"><span id="scene-hint">DRAG TO ORBIT <span>/</span> SCROLL TO ZOOM</span><button id="reset-view" class="text-button" type="button">Reset view <span aria-hidden="true">↗</span></button></div>
+          <div class="transport">
+            <button id="toggle-motion" class="motion-button" type="button" aria-pressed="false"><span id="motion-symbol" aria-hidden="true">Ⅱ</span><span id="motion-label">Pause orbits</span></button>
+            <div class="speed-control"><label for="orbit-speed">ORBIT SPEED</label><select id="orbit-speed"><option value="0.25">0.25×</option><option value="1" selected>1×</option><option value="3">3×</option></select></div>
+            <span class="live-status" id="motion-status">IN MOTION</span>
+          </div>
+        </div>
+        <aside class="details" aria-labelledby="body-name">
+          <div class="section-caption">OBSERVATION <span id="body-number">03 / 09</span></div>
+          <div class="body-art" id="body-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-planet" id="art-planet"></div><span class="art-cross art-cross-top">+</span><span class="art-cross art-cross-bottom">+</span></div>
+          <p class="eyebrow" id="body-kind"></p>
+          <h2 id="body-name"></h2>
+          <p class="body-description" id="body-description"></p>
+          <dl class="facts"><div><dt>FROM THE SUN</dt><dd id="body-distance"></dd></div><div><dt>ORBITAL PERIOD</dt><dd id="body-year"></dd></div><div><dt>ROTATION PERIOD</dt><dd id="body-day"></dd></div></dl>
+          <button class="focus-button" id="focus-body" type="button"><span id="focus-label">Focus on Earth</span><span aria-hidden="true">↗</span></button>
+          <p class="selection-hint">Select a world to follow its story.</p>
+        </aside>
+      </section>
+      <footer id="field-notes" class="field-notes"><p><span class="note-index">01 / FIELD NOTES</span> A view for curiosity, not navigation. Sizes, distances and orbital speeds are illustrative.</p><span class="footer-signature">MADE OF STARDUST, TOO.</span></footer>
+      <p class="sr-only" role="status" id="selection-status"></p>
+      <noscript><p class="noscript-note">This interactive field guide requires JavaScript. The Sun is our star; Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune are its eight planets.</p></noscript>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
